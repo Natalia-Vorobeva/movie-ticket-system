@@ -4,8 +4,7 @@ function HallList({
 	halls,
 	visibleHall,
 	reservation,
-	info,
-	listActiveHalls
+	info
 }) {
 
 	return (

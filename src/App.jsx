@@ -321,10 +321,12 @@ function App() {
 	}
 
 	return (
-		<div className={`relative w-full min-h-[100vh] p-2 text-[3rem] leading-[0.6] grid grid-rows-[auto_1fr_1fr] gap-8 min-h-screen ${selectedData.placeModal || selectFilmModal ? 'max-h-[100vh] overflow-y-hidden' : ''}`} >
+		<div className={`px-4 pr-10 pl-2 relative w-[100%] text-[3rem] leading-[0.6] grid grid-rows-[auto_1fr_1fr] gap-8 min-h-screen ${selectedData.placeModal || selectFilmModal ? 'max-h-[100vh] overflow-y-hidden' : ''}`} >
+			{/* <div className={`relative w-full min-h-[100vh] p-2 text-[3rem] leading-[0.6] grid grid-rows-[auto_1fr_1fr] gap-8 min-h-screen ${selectedData.placeModal || selectFilmModal ? 'max-h-[100vh] overflow-y-hidden' : ''}`} > */}
 			{ticket && <Ticket />}
-			<div>
+			<div className="max-w-[100%]">
 				<Header
+					ticket={ticket}
 					currentCity={dataCurrentTheatre.city}
 					handleClickCity={handleClickCity}
 					currentCinema={dataCurrentTheatre.cinema}
@@ -332,9 +334,9 @@ function App() {
 					cinemaList={dataCurrentTheatre.cinemaList}
 				/>
 			</div>
-			<div>
-				<h1 className={`text-end py-8 text-[5rem] ${selectedData.placeModal ? ' overflow-y-hidden' : ''}`}>Билетная касса</h1>
-				<div className='flex gap-2 pb-10'>
+			<div className='w-[100%]'>
+				<h1 className={`text-[4rem] py-6 lg:text-[10rem] leading-[0.8] text-right pl-[10%] ${selectedData.placeModal ? ' overflow-y-hidden' : ''} ${ticket ? ' hidden' : ''}`}>Билетная касса</h1>
+				<div className='flex flex-wrap md:flex-nowrap w-full  gap-2 sm:gap-8'>
 					<ListFilms
 						films={dataCurrentTheatre.dataTheatre}
 						ticket={ticket}
@@ -344,7 +346,7 @@ function App() {
 						setListActiveHalls={setListActiveHalls}
 					/>
 
-					<div className='w-full pt-6'>
+					<div className='basis-[40vw]'>
 						<HallList
 							info={hallInfo}
 							halls={dataCurrentTheatre.halls}
@@ -386,7 +388,7 @@ function App() {
 			</div>
 
 
-			<div className='flex pt-2 w-full gap-6'>
+			<div className='flex pt-2 w-[100%] gap-6'>
 				<Schedule
 					data={dataCurrentTheatre.halls}
 					dataBase={dataBase}

@@ -24,7 +24,7 @@ function Modal({
 				<h2 className="text-green-700 text-center pt-3 text-[1.2rem]">Зал {serialNumber}</h2>
 				<div
 					className="bg-green-white pt-4 flex flex-col  hover:scale-1.2 ">
-					<div className='flex gap-1 min-w-[10rem] justify-center pb-4'>
+					<div className='flex gap-1 min-w-[10rem] h-[1rem] justify-center pb-4 h-[4rem]'>
 						{
 							currentArrPlaces?.map((item, index) => {
 								return <p key={`${item}/current-places/${index}`}

@@ -3,7 +3,7 @@ import { CITY_LIST } from "../../constants/cinemaСhain/cities/citiesConstants";
 import Dropdown from "../Dropdown/Dropdown"
 
 
-function Header({ handleClickCity, handleClickCinema, currentCinema, currentCity, cinemaList }) {
+function Header({ handleClickCity, handleClickCinema, currentCinema, currentCity, cinemaList, ticket }) {
 
 	const [isOpenCities, setIsOpenCities] = useState(false)
 	const [isOpenCinema, setIsOpenCinema] = useState(false)
@@ -26,12 +26,12 @@ function Header({ handleClickCity, handleClickCinema, currentCinema, currentCity
 	}
 
 	return (
-		<div className="w-full flex justify-right  h-[4rem]">
-			<ul className="h-[3rem] flex gap-4">
-				<li>
-					<p className="text-white h-full text-[1.2rem] pt-2" href="#">Россия</p>
-				</li>
-				<li>
+		<div>
+			<div className=" flex flex-wrap gap-4">
+				{/* <div> */}
+				<div className="text-[1.2rem] pt-2" href="#">Россия</div>
+				{/* </div> */}
+				<div className={`flex gap-4 ${ticket ? "" : ""}`}>
 					<Dropdown
 						isOpen={isOpenCities}
 						data={CITY_LIST}
@@ -39,8 +39,15 @@ function Header({ handleClickCity, handleClickCinema, currentCinema, currentCity
 						handleClick={onClickCity}
 						toggleDropdown={toggleDropdownCity}
 					/>
-				</li>
-				<li className="h-[2rem]">
+					{/* <Dropdown
+						isOpen={isOpenCinema}
+						data={cinemaList}
+						currentChoice={currentCinema}
+						handleClick={onClickCinema}
+						toggleDropdown={toggleDropdownCinema}
+					/> */}
+				</div>
+				<div>
 					<Dropdown
 						isOpen={isOpenCinema}
 						data={cinemaList}
@@ -48,8 +55,8 @@ function Header({ handleClickCity, handleClickCinema, currentCinema, currentCity
 						handleClick={onClickCinema}
 						toggleDropdown={toggleDropdownCinema}
 					/>
-				</li>
-			</ul>
+				</div>
+			</div>
 		</div >
 	)
 }

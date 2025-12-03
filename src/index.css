@@ -1,13 +1,19 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities"; 
-
+* {
+	box-sizing: border-box;
+  max-width: 100%;
+}
 html {
-	@apply w-full box-border h-full  scroll-smooth
+	@apply w-full box-border h-full scroll-smooth m-0 p-0 box-border
 }
 body {
-	@apply max-h-full min-h-full m-0	w-full min-w-full font-montserrat
+	@apply min-h-full m-0 p-0	max-w-[100vw] min-w-[100vw] font-montserrat	overflow-x-hidden 
 }	
+/* h1 {
+	@apply text-[10rem] leading-[0.8] text-right pt-8  pb-10
+} */
 p {
 	@apply text-[1.8rem] leading-[1.2]
 }
@@ -25,8 +31,10 @@ span {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 	width: 100%;
-	min-height: 100vh;
-}
+	min-height: 100vh; 
+	padding: 0;
+	margin: 0;
+} 
 
 button {
 	@apply rounded-sm border-[1px] border-solid border-transparent py-[0.2rem] px-[0.8rem] transition-colors duration-200 relative text-[0.9rem] leading-[1]
@@ -37,4 +45,39 @@ button:focus-visible {
 	outline: none;
 }
 
-
+@layer utilities {
+  /* Минимальная ширина */
+  @media (min-width: 768px) {
+    .custom-md {
+      color: red;
+    }
+  }
+  
+  /* Максимальная ширина */
+  @media (max-width: 767px) {
+    .custom-mobile {
+      padding: 1rem;
+    }
+  }
+  
+  /* Диапазон */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .custom-tablet-only {
+      display: block;
+    }
+  }
+  
+  /* Ориентация */
+  @media (orientation: landscape) {
+    .landscape-only {
+      height: 100vh;
+    }
+  }
+  
+  /* Высота экрана */
+  @media (min-height: 700px) {
+    .tall-screen {
+      margin-top: 4rem;
+    }
+  }
+}

@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "https://github.com/Natalia-Vorobeva/movie-ticket-system.git",
-  plugins: [react()],
+	base: "/movie-ticket-system/",
+	plugins: [react()],
+	css: {
+		postcss: './postcss.config.js', // Убедитесь, что PostCSS настроен
+	}
 })
